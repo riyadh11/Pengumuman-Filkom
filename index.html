@@ -9,7 +9,7 @@
     <body class="grey lighten-4">
        <nav>
     <div class="nav-wrapper yellow darken-3">
-      <a href="#!" class="brand-logo center"><i>filkomAPPS</i></a>
+      <a href="#!" class="brand-logo center title-logo"><i>filkomAPPS</i></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li class="bold active"><a onclick="get_home()">Beranda</a></li>
@@ -20,14 +20,14 @@
       <ul class="side-nav" id="mobile-demo">
         <li class="logo" style="text-align: center;margin-top: 32px;margin-bottom: 120px;">
           <a id="logo-container" style="height: 57px;margin-bottom: 32px;" href="/" class="brand-logo">
-            <object id="front-page-logo" style="display: inline-block;height: 100%;pointer-events: none;" type="image/svg+xml" data="http://materializecss.com/res/materialize.svg" __idm_frm__="184">Your browser does not support SVG</object>
+           <img style="display: inline-block;height: 100%;pointer-events: none;" src="assets/logo.png">
           </a>
         </li>
         <li class="bold active"><a onclick="get_home()">Beranda</a></li>
         <li class="bold"><a onclick="get_pengumuman()">Pengumuman</a></li>
         <li class="bold"><a onclick="get_berita()">Berita</a></li>
         <li class="bold"><a onclick="get_dosen()">Daftar Hadir</a></li>
-        <li class="bold"><a href="sass.html">Tentang</a></li>
+        <li class="bold"><a onclick="get_tentang()">Tentang</a></li>
       </ul>
     </div>
   </nav>
@@ -41,6 +41,57 @@
           <img src="assets/offline.png" style="opacity: 0.5">
           <p style="font-size: 1.3em;opacity:0.7; margin-top: -20px">Sambungan antara gadget anda dengan server tidak dapat dilakukan!</p>
         </div>
+      </section>
+      
+      <section id="home">
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax"><img style="height: 300px;" src="assets/header.png"></div>
+        </div>
+        <div class="container">
+          <center><h4>Menu</h4></center>       
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Pengumuman<i class="material-icons right">more_vert</i></span>
+              <p><a onclick="get_pengumuman()">Klik Disini</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Pengumuman<i class="material-icons right">close</i></span>
+              <center><p>10 Pengumuman terbaru dari filkom.ub.ac.id khusus untuk anda.</p></center>
+            </div>
+          </div>
+
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Berita<i class="material-icons right">more_vert</i></span>
+              <p><a onclick="get_berita()">Klik Disini</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Berita<i class="material-icons right">close</i></span>
+              <center><p>10 Berita terbaru dari filkom.ub.ac.id khusus untuk anda.</p></center>
+            </div>
+          </div>
+
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Daftar Hadir Dosen<i class="material-icons right">more_vert</i></span>
+              <p><a onclick="get_dosen()">Klik Disini</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Daftar Hadir Dosen<i class="material-icons right">close</i></span>
+              <center><p>Daftar hadir dosen dan informasi singkat mengenai dosen!.</p></center>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <section id="pengumuman" hidden="true">
@@ -57,7 +108,7 @@
         </div>
         <div class="section white">
           <div class="row container">
-            <h2 class="header" id="judul-pengumuman"></h2>
+            <h4 class="header" id="judul-pengumuman"></h4>
             <div class="grey-text text-darken-3 lighten-3" id="isi-pengumuman"></div>
           </div>
         </div>
@@ -77,7 +128,7 @@
         </div>
         <div class="section white">
           <div class="row container">
-            <h2 class="header" id="judul-berita"></h2>
+            <h4 class="header" id="judul-berita"></h4>
             <div class="grey-text text-darken-3 lighten-3" id="isi-berita"></div>
           </div>
         </div>
@@ -95,19 +146,19 @@
           </div>
       </section>
 
-      <section id="home" hidden="true">
+      <section id="tentang" hidden="true">
         <div class="parallax-container" style="height: 250px">
-            <div class="parallax"><img src="http://display.ub.ac.id/wp-content/uploads/2016/10/263105.jpg"></div>
+            <div class="parallax"><img style="height: 300px;" src="assets/header.png"></div>
         </div>
         <br>
         <div class="container">
-          <center><h4>Tentang Kami<h4></center>
-
+          <center><h4>Tentang Kami</h4>
+          <p> Kami merupakan developer dari fakultas ilmu komputer universitas brawijaya, aplikasi ini dibuat sebagai syarat menyelesaikan mata kuliah pemrograman platform khusus, jika anda memerlukan bantuan dapat hubungi kami melalui email <a href="mailto:ahmad.riyadh.al@faathin.com">disini</a>.</p></center>
         </div>
       </section>
 
 
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="assets/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
       <script>
           $(".button-collapse").sideNav();
@@ -151,6 +202,7 @@
               clear();
               $("#pengumuman").removeAttr('hidden');
             }
+            $(".title-logo").html("<i>Pengumuman</i>");
           }
 
           function get_pengumuman_detail(id) {
@@ -165,6 +217,7 @@
                   clear();
                   $("#pengumuman-detail").removeAttr('hidden');
                 });
+            $(".title-logo").html("<i>Pengumuman</i>");
           }
 
           function get_berita() {
@@ -200,6 +253,7 @@
               clear();
               $("#berita").removeAttr('hidden');
             }
+            $(".title-logo").html("<i>Berita</i>");
           }
 
           function get_berita_detail(id) {
@@ -216,6 +270,7 @@
                   clear();
                   $("#berita-detail").removeAttr('hidden');
                 });
+            $(".title-logo").html("<i>Berita</i>");
           }
 
           function get_dosen() {
@@ -260,12 +315,19 @@
               clear();
               $("#dosen").removeAttr('hidden');
             }
+            $(".title-logo").html("<i>Daftar Hadir</i>");
           }
 
           function get_home() {
             load();
             clear();
             $("#home").removeAttr('hidden');
+          }
+
+          function get_tentang() {
+            load();
+            clear();
+            $("#tentang").removeAttr('hidden');
           }
 
           $(document).ready(function(){
@@ -276,7 +338,7 @@
            cgahref=text;
            for(var x=0;x<10;x++){
             var cgsrc=cgahref.replace(/src="upload/i,'src="http://file.filkom.ub.ac.id/fileupload/assets/upload');
-            var cgahref=cgsrc.replace(/\/kcfinder\//i,'http://filkom.ub.ac.id/kcfinder/');
+            var cgahref=cgsrc.replace(/href="\/kcfinder\//i,'href="http://filkom.ub.ac.id/kcfinder/');
            }
             return cgahref;
           }
@@ -289,6 +351,7 @@
             $("#offline").attr('hidden', 'true');
             $("#home").attr('hidden', 'true');
             $("#dosen").attr('hidden', 'true');
+            $("#tentang").attr('hidden', 'true');
             $(".loader").removeClass('progress');
           }
 
