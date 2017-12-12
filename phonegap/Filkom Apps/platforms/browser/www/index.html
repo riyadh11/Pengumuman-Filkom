@@ -1,0 +1,367 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title> Pengumuman</title>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body class="grey lighten-4">
+       <nav>
+    <div class="nav-wrapper yellow darken-3">
+      <a href="#!" class="brand-logo center title-logo"><i>filkomAPPS</i></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li class="bold active"><a onclick="get_home()">Beranda</a></li>
+        <li class="bold"><a onclick="get_pengumuman()">Pengumuman</a></li>
+        <li class="bold"><a onclick="get_berita()">Berita</a></li>
+        <li class="bold"><a onclick="get_dosen()">Daftar Hadir</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li class="logo" style="text-align: center;margin-top: 32px;margin-bottom: 120px;">
+          <a id="logo-container" style="height: 57px;margin-bottom: 32px;" href="/" class="brand-logo">
+           <img style="display: inline-block;height: 100%;pointer-events: none;" src="assets/logo.png">
+          </a>
+        </li>
+        <li class="bold active"><a onclick="get_home()">Beranda</a></li>
+        <li class="bold"><a onclick="get_pengumuman()">Pengumuman</a></li>
+        <li class="bold"><a onclick="get_berita()">Berita</a></li>
+        <li class="bold"><a onclick="get_dosen()">Daftar Hadir</a></li>
+        <li class="bold"><a onclick="get_tentang()">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+      
+      <div class="loader">
+          <div class="indeterminate"></div>
+       </div>
+      
+      <section id="offline" hidden="true">
+        <div id="of-center" style="position: absolute;left: 50%;top: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);text-align: center;">
+          <img src="assets/offline.png" style="opacity: 0.5">
+          <p style="font-size: 1.3em;opacity:0.7; margin-top: -20px">Sambungan antara gadget anda dengan server tidak dapat dilakukan!</p>
+        </div>
+      </section>
+      
+      <section id="home">
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax"><img style="height: 300px;" src="assets/header.png"></div>
+        </div>
+        <div class="container">
+          <center><h4>Menu</h4></center>       
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Pengumuman<i class="material-icons right">more_vert</i></span>
+              <p><a onclick="get_pengumuman()">Klik Disini</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Pengumuman<i class="material-icons right">close</i></span>
+              <center><p>10 Pengumuman terbaru dari filkom.ub.ac.id khusus untuk anda.</p></center>
+            </div>
+          </div>
+
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Berita<i class="material-icons right">more_vert</i></span>
+              <p><a onclick="get_berita()">Klik Disini</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Berita<i class="material-icons right">close</i></span>
+              <center><p>10 Berita terbaru dari filkom.ub.ac.id khusus untuk anda.</p></center>
+            </div>
+          </div>
+
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Daftar Hadir Dosen<i class="material-icons right">more_vert</i></span>
+              <p><a onclick="get_dosen()">Klik Disini</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Daftar Hadir Dosen<i class="material-icons right">close</i></span>
+              <center><p>Daftar hadir dosen dan informasi singkat mengenai dosen!.</p></center>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="pengumuman" hidden="true">
+        
+        <div class="container" id="isi-list-pengumuman">
+
+        </div>
+
+      </section>
+
+      <section id="pengumuman-detail" hidden="true">
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax"><img src="http://display.ub.ac.id/wp-content/uploads/2016/10/263105.jpg"></div>
+        </div>
+        <div class="section white">
+          <div class="row container">
+            <h4 class="header" id="judul-pengumuman"></h4>
+            <div class="grey-text text-darken-3 lighten-3" id="isi-pengumuman"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="berita" hidden="true">
+        
+        <div class="container" id="isi-list-berita">
+
+        </div>
+
+      </section>
+
+      <section id="berita-detail" hidden="true">
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax"><img id="thumb_berita" src="http://display.ub.ac.id/wp-content/uploads/2016/10/263105.jpg"></div>
+        </div>
+        <div class="section white">
+          <div class="row container">
+            <h4 class="header" id="judul-berita"></h4>
+            <div class="grey-text text-darken-3 lighten-3" id="isi-berita"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dosen" hidden="true">
+          <div class="container">
+            <br>
+             <ul class="collection" id="isi-list-dosen">
+              </ul>
+
+            <ul class="collapsible" data-collapsible="accordion">
+
+            </ul>
+          </div>
+      </section>
+
+      <section id="tentang" hidden="true">
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax"><img style="height: 300px;" src="assets/header.png"></div>
+        </div>
+        <br>
+        <div class="container">
+          <center><h4>Tentang Kami</h4>
+          <p> Kami merupakan developer dari fakultas ilmu komputer universitas brawijaya, aplikasi ini dibuat sebagai syarat menyelesaikan mata kuliah pemrograman platform khusus, jika anda memerlukan bantuan dapat hubungi kami melalui email <a href="mailto:ahmad.riyadh.al@faathin.com">disini</a>.</p></center>
+        </div>
+      </section>
+
+
+      <script type="text/javascript" src="assets/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+      <script>
+          $(".button-collapse").sideNav();
+          var objP;
+          var objB;
+          var objD;
+          var pengumuman=false;
+          var berita=false;
+          var hadir=false;
+
+          function get_pengumuman() {
+            load();
+            if(pengumuman!=true){
+              var url="http://filkom.ub.ac.id/module/api/conf/get_pengumuman/in";
+              fetch(url).then(function(response) {
+                return response.text().then(function(text) {
+                  objP=JSON.parse(atob(text));
+                  pengumuman=true;
+                  $.each( objP, function( key, value ) {
+                    var html=
+                    '<div class="card small z-depth-1"><div class="card-image">'+
+                      '<img src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">'+
+                      '<span class="card-title">'+this.post_title+'</span>'+
+                    '</div>'+
+                    '<div class="card-content">'+
+                      '<p>'+this.post_content+'</p>'+
+                    '</div>'+
+                    '<div class="card-action">'+
+                      '<a onclick="get_pengumuman_detail('+this.content_id+')">Baca Lebih Lanjut</a>'+
+                    '</div>'+
+                      '</div>';
+                    $("#isi-list-pengumuman").append(html);
+                    clear();
+                    $("#pengumuman").removeAttr('hidden');
+                  });
+                });
+              }).catch(function(){
+                clear();
+                $("#offline").removeAttr('hidden');
+              });;  
+            }else{
+              clear();
+              $("#pengumuman").removeAttr('hidden');
+            }
+            $(".title-logo").html("<i>Pengumuman</i>");
+          }
+
+          function get_pengumuman_detail(id) {
+            load();
+            $.each( objP, function( key, value ) {
+                  if(this.content_id==id){
+                    var html=sanitize(this.post_content);
+                    var title=this.post_title;
+                  }
+                  $("#isi-pengumuman").html(html)
+                  $("#judul-pengumuman").html(title);
+                  clear();
+                  $("#pengumuman-detail").removeAttr('hidden');
+                });
+            $(".title-logo").html("<i>Pengumuman</i>");
+          }
+
+          function get_berita() {
+            load();
+            if(berita!=true){
+              var url="http://filkom.ub.ac.id/module/api/conf/get_berita/in";
+              fetch(url).then(function(response) {
+                return response.text().then(function(text) {
+                  objB=JSON.parse(atob(text));
+                  berita=true;
+                  $.each( objB, function( key, value ) {
+                    var html=
+                    '<div class="card small z-depth-1"><div class="card-image">'+
+                      '<img src="http://file.filkom.ub.ac.id/fileupload/assets/'+this.thumb_img+'">'+
+                    '</div>'+
+                    '<div class="card-content">'+
+                      '<p><bold>'+sanitize(this.post_title)+'</bold></p>'+
+                    '</div>'+
+                    '<div class="card-action">'+
+                      '<a onclick="get_berita_detail('+this.content_id+')">Baca Lebih Lanjut</a>'+
+                    '</div>'+
+                      '</div>';
+                    $("#isi-list-berita").append(html);
+                    clear();
+                    $("#berita").removeAttr('hidden');
+                  });
+                });
+              }).catch(function(){
+                clear();
+                $("#offline").removeAttr('hidden');
+              });  
+            }else{
+              clear();
+              $("#berita").removeAttr('hidden');
+            }
+            $(".title-logo").html("<i>Berita</i>");
+          }
+
+          function get_berita_detail(id) {
+            load();
+            $.each( objB, function( key, value ) {
+                  if(this.content_id==id){
+                    var html=sanitize(this.post_content);
+                    var title=this.post_title;
+                    var thumb="http://file.filkom.ub.ac.id/fileupload/assets/"+this.thumb_img;
+                  }
+                  $("#isi-berita").html(html)
+                  $("#judul-berita").html(title);
+                  $("#thumb_berita").attr('src', thumb);
+                  clear();
+                  $("#berita-detail").removeAttr('hidden');
+                });
+            $(".title-logo").html("<i>Berita</i>");
+          }
+
+          function get_dosen() {
+            load();
+            if(hadir!=true){
+              var url="http://filkom.ub.ac.id/module/api/conf/get_civitas/dosen";
+              fetch(url).then(function(response) {
+                return response.text().then(function(text) {
+                  objD=JSON.parse(atob(text));
+                  hadir=true;
+                  $.each( objD, function( key, value ) {
+                    if(this.hadir){
+                      var work='work';
+                      var keterangan="Hadir";
+                    }else{
+                      var work='explore';
+                      var keterangan="Tidak Hadir";
+                    }
+                    if(this.foto){
+                      var foto='http://file.filkom.ub.ac.id/fileupload/assets/'+this.foto;
+                    }else{
+                      var foto="https://pbs.twimg.com/profile_images/1389902280/icon_400x400.jpg";
+                    }
+                    var html='<li class="collection-item avatar">'+
+                    '<img src="'+foto+'" alt="" class="circle">'+
+                    '<span class="title">'+this.nama+'&nbsp;&nbsp;</span>'+
+                    '<div class="chip">'+keterangan+'</div>'+
+                    '<p><b>NIK</b>&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;:&nbsp;'+this.nik+'<br>'+
+                    '<b>Ruang</b>&nbsp;:&nbsp;'+this.ruangkerja+'</p>'+
+                    '<a href="mailto:'+this.email+'" class="secondary-content"><i class="material-icons">mail</i></a>'+
+                    '</li>';
+                    $("#isi-list-dosen").append(html);
+                    clear();
+                    $("#dosen").removeAttr('hidden');
+                  });
+                });
+              }).catch(function(){
+                clear();
+                $("#offline").removeAttr('hidden');
+              });;  
+            }else{
+              clear();
+              $("#dosen").removeAttr('hidden');
+            }
+            $(".title-logo").html("<i>Daftar Hadir</i>");
+          }
+
+          function get_home() {
+            load();
+            clear();
+            $("#home").removeAttr('hidden');
+            $(".title-logo").html("<i>filkomAPPS</i>");
+          }
+
+          function get_tentang() {
+            load();
+            clear();
+            $("#tentang").removeAttr('hidden');
+            $(".title-logo").html("<i>Tentang</i>");
+          }
+
+          $(document).ready(function(){
+            $('.parallax').parallax();
+          });
+
+          function sanitize(text) {
+           cgahref=text;
+           for(var x=0;x<10;x++){
+            var cgsrc=cgahref.replace(/src="upload/i,'src="http://file.filkom.ub.ac.id/fileupload/assets/upload');
+            var cgahref=cgsrc.replace(/href="\/kcfinder\//i,'href="http://filkom.ub.ac.id/kcfinder/');
+           }
+            return cgahref;
+          }
+
+          function clear() {
+            $("#berita-detail").attr('hidden','true');
+            $("#pengumuman").attr('hidden','true');
+            $("#pengumuman-detail").attr('hidden','true');
+            $("#berita").attr('hidden', 'true');
+            $("#offline").attr('hidden', 'true');
+            $("#home").attr('hidden', 'true');
+            $("#dosen").attr('hidden', 'true');
+            $("#tentang").attr('hidden', 'true');
+            $(".loader").removeClass('progress');
+          }
+
+          function load() {
+            $(".loader").addClass('progress');
+          }
+
+      </script>
+    </body>
+  </html>
