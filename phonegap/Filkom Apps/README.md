@@ -1,10 +1,8 @@
-# A Blank PhoneGap App
+# Pengumuman Filkom PhoneGap Apps
 
 ## Usage
 
-### PhoneGap CLI
-
-    $ phonegap create my-app --template blank
+    $ Upload this file to build.phonegap.com or built on your own PhoneGap CLI
 
 ### Desktop
 
