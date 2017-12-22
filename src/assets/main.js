@@ -174,8 +174,7 @@
           function sanitize(text) {
            cgahref=text;
            for(var x=0;x<10;x++){
-            var cgsrc=cgahref.replace(/src="upload/i,'src="http://file.filkom.ub.ac.id/fileupload/assets/upload');
-            var cgahref=cgsrc.replace(/href="\/kcfinder\//i,'href="http://filkom.ub.ac.id/kcfinder/');
+             cgahref=cgahref.replace(/src="upload/i,'src="http://file.filkom.ub.ac.id/fileupload/assets/upload').replace(/height:/i,'margin:10px;width:85vw;/*').replace(/width:250px/i,'*/').replace(/href="\/kcfinder\//i,'href="http://filkom.ub.ac.id/kcfinder/');
            }
             return cgahref;
           }
