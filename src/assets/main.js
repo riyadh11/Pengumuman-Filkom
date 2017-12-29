@@ -16,7 +16,7 @@
                   $.each( objP, function( key, value ) {
                     var html=
                     '<div class="card small z-depth-1"><div class="card-image">'+
-                      '<img src="http://file.filkom.ub.ac.id/fileupload/assets/upload/file/PTIIK/konten/2015-01/header-2.jpg">'+
+                      '<img src="assets/header-pengumuman.jpg">'+
                       '<span class="card-title">'+this.post_title+'</span>'+
                     '</div>'+
                     '<div class="card-content">'+
@@ -103,7 +103,9 @@
                   }
                   $("#isi-berita").html(html)
                   $("#judul-berita").html(title);
-                  $("#thumb_berita").attr('src', thumb);
+                  if(this.thumb_img!=null){
+                    $("#thumb_berita").attr('src', thumb);
+                  }
                   clear();
                   $("#berita-detail").removeAttr('hidden');
                 });
