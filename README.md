@@ -7,3 +7,6 @@ Simple project using materialize css to display announcement filkom apps through
 - Materialize
 
 - PhoneGap
+
+## Installation
+Go to http://build.phonegap.com/ and upload the src.
